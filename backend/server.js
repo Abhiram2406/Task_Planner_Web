@@ -10,7 +10,7 @@ app.use(cors({
 app.use(express.json());
 
 async function main() {
-  let conn = await mongoose.connect('mongodb://localhost:27017/Todoapp');
+  let conn = await mongoose.connect('mongodb+srv://abhiramnalla2406_db_user:3jDXTSq6tyya4FkC@cluster0.0bsac1c.mongodb.net/Todoapp');
 }
 main().catch(err => console.error(err));
 
@@ -35,7 +35,7 @@ app.patch("/todos/:id",async(req,res)=>{
 })
 app.post("/add-todos",
   async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
     try {
       let tod = new Todo({
         Text:req.body.text,
@@ -43,7 +43,7 @@ app.post("/add-todos",
       });
       await tod.save();
       res.json(tod);
-      console.log("success")
+      // console.log("success")
     }
     catch (err) {
       res.status(500).json({ error: err.message });
