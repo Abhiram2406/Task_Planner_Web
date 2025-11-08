@@ -4,13 +4,16 @@ const mongoose = require('mongoose');
 const Todo = require('./models/Todo');
 const app = express();
 const port = 5000;
+const envvar=require("dotenv").config();
+
 app.use(cors({
   origin: "http://localhost:5173"
 }));
 app.use(express.json());
 
 async function main() {
-  let conn = await mongoose.connect('mongodb+srv://abhiramnalla2406_db_user:3jDXTSq6tyya4FkC@cluster0.0bsac1c.mongodb.net/Todoapp');
+  // console.log(process.env.MONGO_URI);
+  let conn = await mongoose.connect(process.env.MONGO_URI);
 }
 main().catch(err => console.error(err));
 
