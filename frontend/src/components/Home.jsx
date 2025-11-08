@@ -11,10 +11,10 @@ function Home() {
     
 
     useEffect(() => {
-  fetch("http://localhost:5000/all-todos")
+  fetch("https://task-planner-web.vercel.app/all-todos")
     .then(res => res.json())
     .then(data => {
-      console.log(data); 
+      // console.log(data); 
       setTodos(data);    
     })
     .catch(err => console.error(err));
@@ -28,7 +28,7 @@ function Home() {
         setTodo(e.target.value)
     }
     let add_todo=async()=>{
-       await fetch("http://localhost:5000/add-todos", {
+       await fetch("https://task-planner-web.vercel.app/add-todos", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -46,7 +46,7 @@ function Home() {
         let Todoos= Todos.find(e=>e._id===id)
         let status=Todoos.iscompleted
 
-        fetch(`http://localhost:5000/todos/${sendid}`, {   
+        fetch(`https://task-planner-web.vercel.app/todos/${sendid}`, {   
     method: "PATCH",
     headers: {
       "Content-Type": "application/json"
@@ -68,7 +68,7 @@ function Home() {
     }
     let delete_todo=(id)=>{
       let idd=id
-      fetch(`http://localhost:5000/todos/${idd}`,{
+      fetch(`https://task-planner-web.vercel.app/todos/${idd}`,{
        method:"DELETE" })
       setcount(count+1)
     }
