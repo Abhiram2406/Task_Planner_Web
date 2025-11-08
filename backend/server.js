@@ -7,7 +7,7 @@ const port = 5000;
 const envvar=require("dotenv").config();
 
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: "https://task-planner-web-9v7j.vercel.app/"
 }));
 app.use(express.json());
 
