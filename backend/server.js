@@ -13,7 +13,7 @@ app.use(express.json());
 
 async function main() {
   // console.log(process.env.MONGO_URI);
-  let conn = await mongoose.connect(process.env.MONGO_URI);
+let conn = await mongoose.connect(`${process.env.MONGO_URI}`)
 }
 main().catch(err => console.error(err));
 
